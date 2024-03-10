@@ -2,3 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Demonstrate custom list images with :before option. */
+.force-li-check-marks ul {
+  list-style: none;
+}
+
+.force-li-check-marks li:before {
+  content: "";
+  width: 1em;
+  height: 1em;
+  margin-right: 0.75em;
+  display: inline-block;
+  background: transparent url("/ai_check_outline.svg") no-repeat;
+  background-size: contain;
+  vertical-align: text-bottom;
+}
+
+/* Demonstrate custom list images with ::marker option. */
+.force-li-hearts ul {
+  padding-left: 2em;
+}
+
+.force-li-hearts li {
+  list-style-image: url("/ai_heart_outline.svg");
+}

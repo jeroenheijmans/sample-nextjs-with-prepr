@@ -1,13 +1,35 @@
-import InfoBoxes from "@/components/InfoBoxes";
-import HomeIntro from "./HomeIntro";
-import Technologies from "./Technologies";
+import client from "@/services/apollo-client";
+import { GetPage } from "@/queries/get-page";
+import CmsTextBlock from "@/components/CmsTextBlock";
+import CmsImageList from "@/components/CmsImageList";
+import CmsInfoBoxes from "@/components/CmsInfoBoxes";
 
-export default function Home() {
+async function getData() {
+  const { data } = await client.query({
+    query: GetPage,
+    variables: { slug: "home" },
+  });
+
+  return data.Page;
+}
+
+export default async function Home() {
+  const page = await getData();
+
   return (
     <main className="w-full pb-8">
-      <HomeIntro />
-      <Technologies />
-      <InfoBoxes />
+      {page.stack.map((model: any) => {
+        switch (model.__typename) {
+          case "TextBlock":
+            return <CmsTextBlock key={model._id} data={model} />;
+          case "ImageList":
+            return <CmsImageList key={model._id} data={model} />;
+          case "InfoBoxes":
+            return <CmsInfoBoxes key={model._id} data={model} />;
+          default:
+            return <p>Unknown Content.</p>;
+        }
+      })}
     </main>
   );
 }

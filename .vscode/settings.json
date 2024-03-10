@@ -11,5 +11,12 @@
     "**/Thumbs.db": true
   },
   "editor.formatOnSave": true,
-  "cSpell.words": ["Formspark", "Jotform", "OIDC", "tailwindcss", "Typeform"]
+  "cSpell.words": [
+    "Formspark",
+    "Jotform",
+    "OIDC",
+    "outro",
+    "tailwindcss",
+    "Typeform"
+  ]
 }

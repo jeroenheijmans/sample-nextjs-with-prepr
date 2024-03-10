@@ -1,6 +1,13 @@
 import { gql } from "@apollo/client";
+import { TEXT_BLOCK_DETAILS } from "./TextBlockDetails";
+import { IMAGE_LIST_DETAILS } from "./ImageListDetails";
+import { INFO_BOXES_DETAILS } from "./InfoBoxesDetails";
 
 export const GetPage = gql`
+  ${TEXT_BLOCK_DETAILS}
+  ${IMAGE_LIST_DETAILS}
+  ${INFO_BOXES_DETAILS}
+
   query ($slug: String) {
     Page(slug: $slug) {
       _id
@@ -9,38 +16,13 @@ export const GetPage = gql`
       stack {
         __typename
         ... on TextBlock {
-          _id
-          content
-          list_style_image
+          ...TextBlockDetails
         }
         ... on ImageList {
-          _id
-          kind
-          intro
-          images {
-            title
-            image {
-              url
-              height
-              width
-            }
-          }
+          ...ImageListDetails
         }
         ... on InfoBoxes {
-          _id
-          intro
-          outro
-          boxes {
-            kind
-            text_content
-            list_style_image
-            link_text
-            link_href {
-              ... on Page {
-                _slug
-              }
-            }
-          }
+          ...InfoBoxesDetails
         }
       }
       seo {

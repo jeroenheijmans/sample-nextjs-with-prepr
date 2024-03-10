@@ -3,6 +3,7 @@ import { GetPage } from "@/queries/get-page";
 import CmsTextBlock from "@/components/CmsTextBlock";
 import CmsImageList from "@/components/CmsImageList";
 import CmsInfoBoxes from "@/components/CmsInfoBoxes";
+import { Metadata } from "next";
 
 async function getData() {
   const { data } = await client.query({
@@ -11,6 +12,14 @@ async function getData() {
   });
 
   return data.Page;
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  const page = await getData();
+  return {
+    title: page.seo.title,
+    description: page.seo.description,
+  };
 }
 
 export default async function Home() {

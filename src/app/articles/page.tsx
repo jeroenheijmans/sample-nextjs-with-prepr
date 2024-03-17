@@ -33,7 +33,7 @@ export default async function ArticlesPage() {
         </article>
         <div className="flex flex-col gap-4 mt-8">
           {articles.items.map((article: any) => (
-            <Card key={article._slug} kind="neutral">
+            <Card key={article._slug} kind="secondary">
               <h2 className="font-bold text-xl">{article.title}</h2>
               <h3 className="font-bold text-lg mt-2">
                 {article.authors.map((author: any) => (
@@ -42,7 +42,10 @@ export default async function ArticlesPage() {
               </h3>
               <div className="my-2 flex flex-wrap gap-2">
                 {article.categories.map((category: any) => (
-                  <span className="px-2 bg-pink-50" key={category._slug}>
+                  <span
+                    className="px-2 bg-stone-200 rounded"
+                    key={category._slug}
+                  >
                     {category.title}
                   </span>
                 ))}

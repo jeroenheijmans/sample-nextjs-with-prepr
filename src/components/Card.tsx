@@ -7,9 +7,9 @@ interface CardProps {
 
 export default function Card({ children, kind = "primary" }: CardProps) {
   const styles = {
-    primary: "bg-pink-200",
-    secondary: "bg-orange-100",
-    neutral: "bg-stone-200",
+    primary: "bg-pink-100",
+    secondary: "bg-orange-50",
+    neutral: "bg-stone-100",
   };
 
   return (

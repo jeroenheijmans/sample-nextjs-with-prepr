@@ -17,7 +17,7 @@ async function getData() {
 export async function generateMetadata(): Promise<Metadata> {
   const page = await getData();
   return {
-    title: page.seo.title,
+    title: "NextJS + Prepr Sample: " + page.seo.title,
     description: page.seo.description,
   };
 }

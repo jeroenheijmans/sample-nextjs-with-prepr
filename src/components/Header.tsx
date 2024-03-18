@@ -7,7 +7,7 @@ export default function Header() {
         <div className="flex flex-wrap gap-2">
           <MenuMainItem href="/">Home</MenuMainItem>
           <MenuMainItem href="/articles">Articles</MenuMainItem>
-          <MenuMainItem href="/contact">Contact</MenuMainItem>
+          <MenuMainItem href="/authors">Authors</MenuMainItem>
         </div>
         <div className="sm:ml-auto flex flex-wrap gap-2">
           <MenuMainItem href="/sign-in">Sign In</MenuMainItem>

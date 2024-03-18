@@ -5,6 +5,16 @@ export const GetArticle = gql`
     Article(slug: $slug) {
       _slug
       title
+      cover {
+        url
+        width
+        height
+      }
+      content {
+        ... on Text {
+          html
+        }
+      }
       authors {
         _slug
         full_name

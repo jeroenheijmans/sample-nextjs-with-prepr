@@ -15,9 +15,9 @@ async function getData(slug: string) {
 export default async function DynamicPage({
   params,
 }: {
-  params: { slug: string };
+  params: { slug: string[] };
 }) {
-  const page = await getData(params.slug);
+  const page = await getData(params.slug.join("/"));
 
   if (!page) return notFound();
 

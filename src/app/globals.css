@@ -7,22 +7,10 @@
   list-style: none;
 }
 
-.force-li-check-marks li:before {
-  content: "";
-  width: 1em;
-  height: 1em;
-  margin-right: 0.75em;
-  display: inline-block;
-  background: transparent url("/ai_check_outline.svg") no-repeat;
-  background-size: contain;
-  vertical-align: text-bottom;
+.force-li-check-marks ul li::marker {
+  content: url("/ai_check_outline.svg");
 }
 
-/* Demonstrate custom list images with ::marker option. */
-.force-li-hearts ul {
-  padding-left: 2em;
-}
-
-.force-li-hearts ul li {
-  list-style-image: url("/ai_heart_outline.svg");
+.force-li-hearts ul li::marker {
+  content: url("/ai_heart_outline.svg");
 }

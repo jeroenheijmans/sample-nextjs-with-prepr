@@ -11,8 +11,17 @@ export const GetArticle = gql`
         height
       }
       content {
+        __typename
         ... on Text {
           html
+        }
+        ... on Assets {
+          items {
+            url
+            width
+            height
+            description
+          }
         }
       }
       authors {

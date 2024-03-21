@@ -1,14 +1,15 @@
 import { GetArticle } from "@/queries/get-article";
 import client from "@/services/apollo-client";
 import { Metadata } from "next";
-import Link from "next/link";
+import CategoryLabel from "@/components/CategoryLabel";
+import AuthorLink from "@/components/AuthorLink";
+import DynamicContentPart from "@/components/CmsDynamicContentPart";
 
 type PageProps = {
   params: { slug: string };
 };
 
 async function getData(slug: string) {
-  console.log(slug);
   const { data } = await client.query({
     query: GetArticle,
     variables: { slug },
@@ -33,44 +34,27 @@ export default async function ArticlesPage({ params }: PageProps) {
   return (
     <main className="w-full pb-8">
       <div className="my-8 mx-auto max-w-screen-lg px-4">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={article.cover[0]?.url}
-          alt="Article visual"
-          className="max-h-[320px] float-right ml-4 mb-4 border-4 border-black/25"
-        />
-        <div className="prose mb-8">
-          <h1>{article.title}</h1>
+        <div className="max-w-[320px] max-h-[320px] float-right ml-4 mb-4 border-4 border-black/25">
+          {article.cover.length > 0 && article.cover[0]?.url && (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img src={article.cover[0]?.url} alt="Article visual" />
+          )}
         </div>
-        <div
-          className="prose"
-          dangerouslySetInnerHTML={{
-            __html: article.content.map((c: any) => c.html || "").join(""),
-          }}
-        ></div>
+        <div className="flex flex-col gap-2 prose">
+          <h1>{article.title}</h1>
+          {article.content.map((part: any, key: number) => (
+            <DynamicContentPart key={key} {...part} />
+          ))}
+        </div>
         <hr className="my-4" />
         <div className="flex flex-wrap gap-2 my-4">
           {article.authors.map((author: any) => (
-            <Link
-              key={author._slug}
-              href={`/authors/view/${author._slug}`}
-              className="p-2 bg-neutral-200 rounded"
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={author.profile_pic[0]?.url}
-                alt="Author profile picture"
-                className="w-40 aspect-square"
-              />
-              <p className="mt-2 text-center">{author.full_name}</p>
-            </Link>
+            <AuthorLink key={author._slug} {...author} />
           ))}
         </div>
         <div className="my-2 flex flex-wrap gap-2">
           {article.categories.map((category: any) => (
-            <span className="px-2 bg-stone-200 rounded" key={category._slug}>
-              {category.title}
-            </span>
+            <CategoryLabel key={category._slug} {...category} />
           ))}
         </div>
       </div>

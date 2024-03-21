@@ -1,9 +1,7 @@
 import client from "@/services/apollo-client";
 import { GetPage } from "@/queries/get-page";
-import CmsTextBlock from "@/components/CmsTextBlock";
-import CmsImageList from "@/components/CmsImageList";
-import CmsInfoBoxes from "@/components/CmsInfoBoxes";
 import { Metadata } from "next";
+import CmsStack from "@/components/CmsStack";
 
 async function getData() {
   const { data } = await client.query({
@@ -27,18 +25,7 @@ export default async function Home() {
 
   return (
     <main className="w-full pb-8">
-      {page.stack.map((model: any) => {
-        switch (model.__typename) {
-          case "TextBlock":
-            return <CmsTextBlock key={model._id} data={model} />;
-          case "ImageList":
-            return <CmsImageList key={model._id} data={model} />;
-          case "InfoBoxes":
-            return <CmsInfoBoxes key={model._id} data={model} />;
-          default:
-            return <p>Unknown Content.</p>;
-        }
-      })}
+      <CmsStack stack={page.stack} />
     </main>
   );
 }

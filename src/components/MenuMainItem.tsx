@@ -11,7 +11,8 @@ interface MenuMainItemProps {
 
 export default function MenuMainItem({ children, href }: MenuMainItemProps) {
   const path = usePathname();
-  const isActive = href === "/" ? path === href : path.startsWith(href);
+  const isActive =
+    href === "/" ? path === href || path === "/home" : path.startsWith(href);
   return (
     <Link
       className={`py-2 sm:py-4 px-1 hover:underline hover:text-pink-50 ${

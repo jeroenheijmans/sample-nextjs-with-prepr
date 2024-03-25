@@ -8,7 +8,7 @@ interface MenuMainItemProps {
 }
 
 export default function MenuMainItem({ item }: MenuMainItemProps) {
-  const { href, title, isActive } = useExtractedLink(item);
+  const { href, title, isActive, isExternal } = useExtractedLink(item);
 
   return (
     <div className="flex flex-col grow">
@@ -16,9 +16,10 @@ export default function MenuMainItem({ item }: MenuMainItemProps) {
         className={`py-2 sm:py-4 hover:underline hover:text-pink-50 text-xl ${
           isActive ? "underline" : ""
         }`}
+        target={isExternal ? "_blank" : "_self"}
         href={href}
       >
-        {title}
+        {title} {isExternal && <sup className="text-xs">↗</sup>}
       </Link>
       {item.children.length > 0 && (
         <ul>
@@ -43,7 +44,7 @@ function MenuChildItem(child: any) {
         href={href}
         target={isExternal ? "_blank" : "_self"}
       >
-        {title}
+        {title} {isExternal && <sup className="text-xs">↗</sup>}
       </Link>
     </li>
   );

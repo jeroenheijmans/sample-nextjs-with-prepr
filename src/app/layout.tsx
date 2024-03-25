@@ -32,6 +32,9 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const globalUI = await GetGlobalUIData();
+
+  // TODO: Create a demo with globalUI.highlighted_article
+
   return (
     <html lang="en">
       <body className={inter.className}>

@@ -10,6 +10,12 @@
     "**/.DS_Store": true,
     "**/Thumbs.db": true
   },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/*.code-search": true,
+    "**/package-lock.json": true
+  },
   "editor.formatOnSave": true,
   "cSpell.words": [
     "Formspark",

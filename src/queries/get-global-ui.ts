@@ -6,7 +6,6 @@ export const GetGlobalUI = gql`
       global_notification {
         text
         bg_color
-        fg_color
         is_dismissible
       }
       highlighted_article {

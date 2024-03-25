@@ -13,9 +13,15 @@ export const GetNavigation = gql`
           url
           title
         }
-        link_to_page {
-          _slug
-          title
+        link_internal {
+          ... on Page {
+            _slug
+            title
+          }
+          ... on Article {
+            _slug
+            title
+          }
         }
         children {
           title
@@ -24,9 +30,15 @@ export const GetNavigation = gql`
             url
             title
           }
-          link_to_page {
-            _slug
-            title
+          link_internal {
+            ... on Page {
+              _slug
+              title
+            }
+            ... on Article {
+              _slug
+              title
+            }
           }
         }
       }

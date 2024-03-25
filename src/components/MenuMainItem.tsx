@@ -13,15 +13,15 @@ function isExternalLink(menuItem: any) {
 
 function hrefFor(menuItem: any) {
   if (isExternalLink(menuItem)) return menuItem.link_external?.url;
-  if (menuItem.link_to_page?.length === 1)
-    return "/" + menuItem.link_to_page[0]._slug;
+  if (menuItem.link_internal?.length === 1)
+    return "/" + menuItem.link_internal[0]._slug;
   return "/";
 }
 
 function titleFor(menuItem: any) {
   if (isExternalLink(menuItem)) return menuItem.link_external?.title;
-  if (menuItem.link_to_page?.length === 1)
-    return menuItem.link_to_page[0].title;
+  if (menuItem.link_internal?.length === 1)
+    return menuItem.link_internal[0].title;
   return menuItem.title;
 }
 

@@ -1,34 +1,14 @@
 "use client";
 
+import useExtractedLink from "@/hooks/useExtractedLink";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 
 interface MenuMainItemProps {
   item: any;
 }
 
-function isExternalLink(menuItem: any) {
-  return !!menuItem.link_external?.url;
-}
-
-function hrefFor(menuItem: any) {
-  if (isExternalLink(menuItem)) return menuItem.link_external?.url;
-  if (menuItem.link_internal?.length === 1)
-    return "/" + menuItem.link_internal[0]._slug;
-  return "/";
-}
-
-function titleFor(menuItem: any) {
-  if (isExternalLink(menuItem)) return menuItem.link_external?.title;
-  if (menuItem.link_internal?.length === 1)
-    return menuItem.link_internal[0].title;
-  return menuItem.title;
-}
-
 export default function MenuMainItem({ item }: MenuMainItemProps) {
-  const path = usePathname();
-  const href = hrefFor(item);
-  const isActive = href === "/" ? path === href : path.startsWith(href);
+  const { href, title, isActive } = useExtractedLink(item);
 
   return (
     <div className="flex flex-col grow">
@@ -38,30 +18,33 @@ export default function MenuMainItem({ item }: MenuMainItemProps) {
         }`}
         href={href}
       >
-        {titleFor(item)}
+        {title}
       </Link>
       {item.children.length > 0 && (
         <ul>
-          {item.children.map((child: any) => {
-            const href = hrefFor(child);
-            const isActive =
-              href === "/" ? path === href : path.startsWith(href);
-            return (
-              <li key={child.title}>
-                <Link
-                  className={`inline-block py-1 hover:underline hover:text-pink-50 ${
-                    isActive ? "underline" : ""
-                  }`}
-                  href={hrefFor(child)}
-                  target={isExternalLink(child) ? "_blank" : "_self"}
-                >
-                  {titleFor(child)}
-                </Link>
-              </li>
-            );
-          })}
+          {item.children.map((child: any, index: number) => (
+            <MenuChildItem key={index} {...child} />
+          ))}
         </ul>
       )}
     </div>
+  );
+}
+
+function MenuChildItem(child: any) {
+  const { href, title, isExternal, isActive } = useExtractedLink(child);
+
+  return (
+    <li>
+      <Link
+        className={`inline-block py-1 hover:underline hover:text-pink-50 ${
+          isActive ? "underline" : ""
+        }`}
+        href={href}
+        target={isExternal ? "_blank" : "_self"}
+      >
+        {title}
+      </Link>
+    </li>
   );
 }

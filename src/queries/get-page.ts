@@ -8,7 +8,7 @@ export const GetPage = gql`
   ${IMAGE_LIST_DETAILS}
   ${INFO_BOXES_DETAILS}
 
-  query ($slug: String) {
+  query Page($slug: String) {
     Page(slug: $slug) {
       _id
       title

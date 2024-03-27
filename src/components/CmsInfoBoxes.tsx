@@ -1,5 +1,5 @@
-import CmsInfoBox from "./CmsInfoBox";
 import CmsHtml from "./CmsHtml";
+import CmsInfoBox from "./CmsInfoBox";
 
 export default function CmsInfoBoxes({ data }: { data: any }) {
   return (

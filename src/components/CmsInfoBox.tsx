@@ -1,6 +1,7 @@
+import Link from "next/link";
+
 import Card from "./Card";
 import CmsHtml from "./CmsHtml";
-import Link from "next/link";
 
 interface CmsInfoBoxProps {
   data: any;

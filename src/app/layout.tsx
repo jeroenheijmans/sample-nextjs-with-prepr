@@ -1,11 +1,13 @@
+import "./globals.css";
+
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
-import Header from "@/components/Header";
+
 import Footer from "@/components/Footer";
-import getClient from "@/services/apollo-client";
-import { GetGlobalUI } from "@/queries/get-global-ui";
 import GlobalNotificationBar from "@/components/GlobalNotificationBar";
+import Header from "@/components/Header";
+import { GetGlobalUI } from "@/queries/get-global-ui";
+import getClient from "@/services/apollo-client";
 
 const inter = Inter({ subsets: ["latin"] });
 

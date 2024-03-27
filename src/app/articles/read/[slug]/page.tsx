@@ -1,9 +1,10 @@
+import { Metadata } from "next";
+
+import AuthorLink from "@/components/AuthorLink";
+import CategoryLabel from "@/components/CategoryLabel";
+import DynamicContentPart from "@/components/CmsDynamicContentPart";
 import { GetArticle } from "@/queries/get-article";
 import getClient from "@/services/apollo-client";
-import { Metadata } from "next";
-import CategoryLabel from "@/components/CategoryLabel";
-import AuthorLink from "@/components/AuthorLink";
-import DynamicContentPart from "@/components/CmsDynamicContentPart";
 
 type PageProps = {
   params: { slug: string };

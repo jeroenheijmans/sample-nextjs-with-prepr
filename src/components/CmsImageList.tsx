@@ -1,4 +1,5 @@
 import Image from "next/image";
+
 import CmsHtml from "./CmsHtml";
 
 export default function CmsImageList({ data }: { data: any }) {

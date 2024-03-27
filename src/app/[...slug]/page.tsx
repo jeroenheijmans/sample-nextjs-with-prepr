@@ -1,7 +1,8 @@
+import { notFound } from "next/navigation";
+
 import CmsStack from "@/components/CmsStack";
 import { GetPage } from "@/queries/get-page";
 import getClient from "@/services/apollo-client";
-import { notFound } from "next/navigation";
 
 async function getData(slug: string) {
   const { data } = await getClient().query({

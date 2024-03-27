@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+
 import CmsHtml from "./CmsHtml";
 
 export default function CmsNotificationBar({ model }: any) {

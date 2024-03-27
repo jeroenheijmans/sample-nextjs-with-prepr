@@ -1,7 +1,8 @@
 import { gql } from "@apollo/client";
-import { TEXT_BLOCK_DETAILS } from "./TextBlockDetails";
+
 import { IMAGE_LIST_DETAILS } from "./ImageListDetails";
 import { INFO_BOXES_DETAILS } from "./InfoBoxesDetails";
+import { TEXT_BLOCK_DETAILS } from "./TextBlockDetails";
 
 export const GetPage = gql`
   ${TEXT_BLOCK_DETAILS}

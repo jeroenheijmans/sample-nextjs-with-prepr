@@ -1,7 +1,8 @@
 "use client";
 
-import useExtractedLink from "@/hooks/useExtractedLink";
 import Link from "next/link";
+
+import useExtractedLink from "@/hooks/useExtractedLink";
 
 interface MenuMainItemProps {
   item: any;

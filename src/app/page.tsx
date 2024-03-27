@@ -1,7 +1,8 @@
-import getClient from "@/services/apollo-client";
-import { GetPage } from "@/queries/get-page";
 import { Metadata } from "next";
+
 import CmsStack from "@/components/CmsStack";
+import { GetPage } from "@/queries/get-page";
+import getClient from "@/services/apollo-client";
 
 async function getData() {
   const { data } = await getClient().query({

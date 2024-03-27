@@ -1,9 +1,9 @@
 import ArticleCard from "@/components/ArticleCard";
 import { GetArticles } from "@/queries/get-articles";
-import client from "@/services/apollo-client";
+import getClient from "@/services/apollo-client";
 
 async function getData() {
-  const { data } = await client.query({
+  const { data } = await getClient().query({
     query: GetArticles,
   });
 

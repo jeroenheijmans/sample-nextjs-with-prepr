@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import client from "@/services/apollo-client";
+import getClient from "@/services/apollo-client";
 import { GetGlobalUI } from "@/queries/get-global-ui";
 import GlobalNotificationBar from "@/components/GlobalNotificationBar";
 
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 };
 
 async function GetGlobalUIData() {
-  const { data } = await client.query({
+  const { data } = await getClient().query({
     query: GetGlobalUI,
   });
 

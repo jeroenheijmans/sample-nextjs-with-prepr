@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3",
+    "@apollo/experimental-nextjs-app-support": "0.9.1",
     "graphql": "^16",
     "next": "^14",
     "react": "^18",

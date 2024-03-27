@@ -1,5 +1,5 @@
 import { GetArticle } from "@/queries/get-article";
-import client from "@/services/apollo-client";
+import getClient from "@/services/apollo-client";
 import { Metadata } from "next";
 import CategoryLabel from "@/components/CategoryLabel";
 import AuthorLink from "@/components/AuthorLink";
@@ -10,7 +10,7 @@ type PageProps = {
 };
 
 async function getData(slug: string) {
-  const { data } = await client.query({
+  const { data } = await getClient().query({
     query: GetArticle,
     variables: { slug },
   });

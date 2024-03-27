@@ -1,9 +1,9 @@
 import AuthorLink from "@/components/AuthorLink";
 import { GetPersons } from "@/queries/get-persons";
-import client from "@/services/apollo-client";
+import getClient from "@/services/apollo-client";
 
 async function getData() {
-  const { data } = await client.query({
+  const { data } = await getClient().query({
     query: GetPersons,
   });
 

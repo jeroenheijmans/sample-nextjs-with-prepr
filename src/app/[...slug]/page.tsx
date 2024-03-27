@@ -1,10 +1,10 @@
 import CmsStack from "@/components/CmsStack";
 import { GetPage } from "@/queries/get-page";
-import client from "@/services/apollo-client";
+import getClient from "@/services/apollo-client";
 import { notFound } from "next/navigation";
 
 async function getData(slug: string) {
-  const { data } = await client.query({
+  const { data } = await getClient().query({
     query: GetPage,
     variables: { slug },
   });

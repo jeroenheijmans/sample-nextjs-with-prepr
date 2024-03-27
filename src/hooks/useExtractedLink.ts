@@ -38,11 +38,17 @@ function extractLink(model: InternalOrExternalLink) {
 export default function useExtractedLink(model: InternalOrExternalLink) {
   const link = extractLink(model);
   const path = usePathname();
+
+  const isActive =
+    link.href === "/"
+      ? path === link.href || path === "/"
+      : path.startsWith(link.href);
+
+  const isActiveExactly = isActive && link.href?.endsWith(path);
+
   return {
     ...link,
-    isActive:
-      link.href === "/"
-        ? path === link.href || path === "/"
-        : path.startsWith(link.href),
+    isActive,
+    isActiveExactly,
   };
 }

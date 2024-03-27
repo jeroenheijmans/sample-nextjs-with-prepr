@@ -7,7 +7,8 @@ interface MenuMainItemProps {
 }
 
 export default function MenuMainItem({ item }: MenuMainItemProps) {
-  const { href, title, isActive, isExternal } = useExtractedLink(item);
+  const { href, title, isActive, isActiveExactly, isExternal } =
+    useExtractedLink(item);
 
   return (
     <div
@@ -41,6 +42,24 @@ export default function MenuMainItem({ item }: MenuMainItemProps) {
             md:bg-pink-800 md:border md:border-pink-900 md:drop-shadow-xl
             "
         >
+          {href && (
+            <li className="hidden md:block">
+              <Link
+                className={`inline-block py-1 hover:underline hover:text-pink-50 text-lg ${
+                  isActiveExactly ? "underline" : ""
+                }`}
+                target={isExternal ? "_blank" : "_self"}
+                href={href}
+              >
+                {title} {isExternal && <sup className="text-xs">↗</sup>}
+              </Link>
+            </li>
+          )}
+          {href && (
+            <li className="hidden md:block py-2">
+              <hr className="opacity-25" />
+            </li>
+          )}
           {item.children.map((child: any, index: number) => (
             <MenuChildItem key={index} {...child} />
           ))}

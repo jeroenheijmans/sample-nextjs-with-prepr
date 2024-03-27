@@ -17,7 +17,7 @@ export default async function Header() {
 
   return (
     <header className="bg-pink-900 text-pink-100 w-full md:sticky top-0 drop-shadow-lg z-10">
-      <div className="mx-auto max-w-screen-lg py-1 px-4 flex flex-wrap gap-2 md:gap-8 flex-col md:flex-row">
+      <div className="mx-auto max-w-screen-lg md:px-4 flex flex-wrap gap-2 md:gap-4 flex-col md:flex-row">
         {navigation.menu_items.map((menuItem: any) => (
           <MenuMainItem key={menuItem.title} item={menuItem} />
         ))}

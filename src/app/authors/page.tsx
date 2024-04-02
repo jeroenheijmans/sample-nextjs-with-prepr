@@ -1,4 +1,4 @@
-import AuthorLink from "@/components/AuthorLink";
+import AuthorLink from "@/components/Prepr/AuthorLink";
 import { GetPersons } from "@/queries/get-persons";
 import getClient from "@/services/apollo-client";
 

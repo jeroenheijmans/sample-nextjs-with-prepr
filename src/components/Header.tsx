@@ -1,7 +1,7 @@
 import { GetNavigation } from "@/queries/get-navigation";
 import getClient from "@/services/apollo-client";
 
-import Menu from "./Menu";
+import Menu from "./HeaderMenu";
 
 async function getData(slug: string) {
   const { data } = await getClient().query({

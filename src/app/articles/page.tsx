@@ -1,4 +1,4 @@
-import ArticleCard from "@/components/ArticleCard";
+import ArticleCard from "@/components/Prepr/ArticleCard";
 import { GetArticles } from "@/queries/get-articles";
 import getClient from "@/services/apollo-client";
 

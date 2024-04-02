@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
-import ArticleCard from "@/components/ArticleCard";
-import AuthorLink from "@/components/AuthorLink";
 import Breadcrumb from "@/components/Breadcrumb";
+import ArticleCard from "@/components/Prepr/ArticleCard";
+import AuthorLink from "@/components/Prepr/AuthorLink";
 import { GetPerson } from "@/queries/get-person";
 import getClient from "@/services/apollo-client";
 

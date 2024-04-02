@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 
-import CmsStack from "@/components/CmsStack";
+import CmsStack from "@/components/Prepr/CmsStack";
 import { GetPage } from "@/queries/get-page";
 import getClient from "@/services/apollo-client";
 

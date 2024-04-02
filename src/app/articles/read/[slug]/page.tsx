@@ -1,9 +1,9 @@
 import { Metadata } from "next";
 
-import AuthorLink from "@/components/AuthorLink";
 import Breadcrumb from "@/components/Breadcrumb";
-import CategoryLabel from "@/components/CategoryLabel";
-import DynamicContentPart from "@/components/CmsDynamicContentPart";
+import AuthorLink from "@/components/Prepr/AuthorLink";
+import CategoryLabel from "@/components/Prepr/CategoryLabel";
+import DynamicContentPart from "@/components/Prepr/CmsDynamicContentPart";
 import { GetArticle } from "@/queries/get-article";
 import getClient from "@/services/apollo-client";
 

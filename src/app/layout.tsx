@@ -4,8 +4,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
 import Footer from "@/components/Footer";
-import GlobalNotificationBar from "@/components/GlobalNotificationBar";
 import Header from "@/components/Header";
+import GlobalNotificationBar from "@/components/Prepr/GlobalNotificationBar";
 import { GetGlobalUI } from "@/queries/get-global-ui";
 import getClient from "@/services/apollo-client";
 

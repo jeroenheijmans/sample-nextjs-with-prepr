@@ -1,6 +1,7 @@
 import CmsImageList from "./CmsImageList";
 import CmsInfoBoxes from "./CmsInfoBoxes";
 import CmsTextBlock from "./CmsTextBlock";
+import MissingCmsComponent from "./MissingCmsComponent";
 
 export default function CmsStack({ stack }: { stack: any }) {
   return (
@@ -14,7 +15,7 @@ export default function CmsStack({ stack }: { stack: any }) {
           case "InfoBoxes":
             return <CmsInfoBoxes key={model._id} data={model} />;
           default:
-            return <p>Unknown Content.</p>;
+            return <MissingCmsComponent />;
         }
       })}
     </>

@@ -32,6 +32,11 @@ export default function MenuMainItem({ item }: MenuMainItemProps) {
         href={href}
       >
         {title} {isExternal && <sup className="text-xs">↗</sup>}
+        {item.children.length > 0 && (
+          <span className="text-xs opacity-50 ml-2 hidden md:inline-block">
+            ▼
+          </span>
+        )}
       </Link>
       {item.children.length > 0 && (
         <ul

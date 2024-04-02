@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 
 interface CardProps {
   children?: ReactNode;
-  kind?: "primary" | "secondary" | "neutral";
+  kind?: "primary" | "secondary" | "neutral" | "error";
 }
 
 export default function Card({ children, kind = "primary" }: CardProps) {
@@ -10,6 +10,7 @@ export default function Card({ children, kind = "primary" }: CardProps) {
     primary: "bg-pink-100",
     secondary: "bg-orange-50",
     neutral: "bg-stone-100",
+    error: "bg-red-200 text-red-700",
   };
 
   return (

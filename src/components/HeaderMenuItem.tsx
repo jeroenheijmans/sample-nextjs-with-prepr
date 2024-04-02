@@ -38,6 +38,7 @@ export default function HeaderMenuMainItem({ item }: MenuMainItemProps) {
           </span>
         )}
       </Link>
+      {/* TODO: Make the expand-menu keyboard accessible. */}
       {item.children.length > 0 && (
         <ul
           className="

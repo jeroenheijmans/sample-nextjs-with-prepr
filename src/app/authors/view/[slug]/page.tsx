@@ -2,6 +2,7 @@ import { Metadata } from "next";
 
 import ArticleCard from "@/components/ArticleCard";
 import AuthorLink from "@/components/AuthorLink";
+import Breadcrumb from "@/components/Breadcrumb";
 import { GetPerson } from "@/queries/get-person";
 import getClient from "@/services/apollo-client";
 
@@ -33,6 +34,14 @@ export default async function ArticlesPage({ params }: PageProps) {
   return (
     <main className="w-full pb-8">
       <div className="page-content">
+        <Breadcrumb
+          crumbs={[
+            { title: "Home", href: "/" },
+            { title: "Authors", href: "/authors" },
+            { title: person.full_name, href: `/authors/view/${person._slug}` },
+          ]}
+        />
+
         <div className="inline-flex mb-4 sm:ml-4 sm:float-right">
           <AuthorLink key={person._slug} {...person} />
         </div>

@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 
 import AuthorLink from "@/components/AuthorLink";
+import Breadcrumb from "@/components/Breadcrumb";
 import CategoryLabel from "@/components/CategoryLabel";
 import DynamicContentPart from "@/components/CmsDynamicContentPart";
 import { GetArticle } from "@/queries/get-article";
@@ -35,7 +36,15 @@ export default async function ArticlesPage({ params }: PageProps) {
   return (
     <main className="w-full pb-8">
       <div className="page-content">
-        <div className="max-w-[320px] max-h-[320px] float-right ml-4 mb-4 border-4 border-black/25">
+        <Breadcrumb
+          crumbs={[
+            { title: "Home", href: "/" },
+            { title: "Articles", href: "/articles" },
+            { title: article.title, href: `/articles/read/${article._slug}` },
+          ]}
+        />
+
+        <div className="max-w-[320px] max-h-[320px] md:float-right md:ml-4 mb-4 border-4 border-black/25">
           {article.cover.length > 0 && article.cover[0]?.url && (
             // eslint-disable-next-line @next/next/no-img-element
             <img src={article.cover[0]?.url} alt="Article visual" />

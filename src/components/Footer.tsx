@@ -1,44 +1,34 @@
-import Link from "next/link";
+import { GetNavigation } from "@/queries/get-navigation";
+import getClient from "@/services/apollo-client";
 
-export default function Footer() {
+import MenuFooterItem from "./MenuFooterItem";
+
+async function getData(slug: string) {
+  const { data } = await getClient().query({
+    query: GetNavigation,
+    variables: { slug },
+  });
+
+  return data.Navigation;
+}
+
+export default async function Footer() {
+  const navigation = await getData("navigation-bar-footer");
+
   return (
     <footer className="bg-pink-100 text-pink-900 mt-auto w-full">
       <div className="mx-auto max-w-screen-lg py-8 md:py-16 px-4 text-sm">
-        <div className="flex flex-col gap-4 md:flex-row lg:gap-16">
-          <div className="flex flex-col gap-1">
-            <h2 className="font-bold">About this site</h2>
-            <p>Copyright 2024, Jeroen Heijmans</p>
-          </div>
-          <div className="flex flex-col gap-1">
-            <h2 className="font-bold">Resources</h2>
-            <Link className="hover:underline" href="/">
-              Source code for this sample
-            </Link>
-            <Link className="hover:underline" href="/">
-              NextJS Documentation
-            </Link>
-            <Link className="hover:underline" href="/">
-              TailwindCSS documentation
-            </Link>
-            <Link className="hover:underline" href="/">
-              Prepr Headless CMS documentation
-            </Link>
-          </div>
-          <div className="flex flex-col gap-1">
-            <h2 className="font-bold">More samples like this</h2>
-            <Link className="hover:underline" href="/">
-              NextJS with Typeform
-            </Link>
-            <Link className="hover:underline" href="/">
-              NextJS with Jotform
-            </Link>
-            <Link className="hover:underline" href="/">
-              NextJS with Formspark
-            </Link>
-            <Link className="hover:underline" href="/">
-              Angular with Angular-OAuth2-OIDC
-            </Link>
-          </div>
+        <div className="flex flex-col gap-4 md:flex-row md:gap-8 lg:gap-16">
+          {navigation.menu_items.map((group: any, index: number) => (
+            <div key={index} className="flex flex-col gap-1">
+              <h2 className="font-bold">{group.title}</h2>
+              {group.children.map((child: any, index: number) => (
+                <div key={index}>
+                  <MenuFooterItem item={child} />
+                </div>
+              ))}
+            </div>
+          ))}
         </div>
         <hr className="my-8 border-pink-200" />
         <p>

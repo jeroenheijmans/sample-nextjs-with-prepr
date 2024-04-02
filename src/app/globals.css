@@ -2,15 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Demonstrate custom list images with :before option. */
-.force-li-check-marks ul {
-  list-style: none;
+@layer utilities {
+  .page-content {
+    @apply my-8 mx-auto max-w-screen-lg px-4 overflow-x-hidden;
+  }
 }
 
-.force-li-check-marks ul li::marker {
-  content: url("/ai_check_outline.svg");
-}
+@layer components {
+  /* Demonstrate custom list images with :before option. */
+  .force-li-check-marks ul {
+    list-style: none;
+  }
 
-.force-li-hearts ul li::marker {
-  content: url("/ai_heart_outline.svg");
+  .force-li-check-marks ul li::marker {
+    content: url("/ai_check_outline.svg");
+  }
+
+  .force-li-hearts ul li::marker {
+    content: url("/ai_heart_outline.svg");
+  }
 }

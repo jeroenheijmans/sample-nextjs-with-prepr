@@ -4,7 +4,7 @@ export default function AuthorLink(author: any) {
   return (
     <Link
       href={`/authors/view/${author._slug}`}
-      className="p-2 bg-neutral-200 rounded hover:drop-shadow-lg hover:bg-neutral-100"
+      className="p-2 bg-neutral-200 rounded hover:drop-shadow-lg hover:bg-neutral-100 hover:text-pink-700 text-pink-900"
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img

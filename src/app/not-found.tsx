@@ -1,7 +1,7 @@
 export default function ContactPage() {
   return (
     <main className="w-full pb-8">
-      <div className="my-8 mx-auto max-w-screen-lg px-4">
+      <div className="page-content">
         <article className="prose">
           <h1>💔 Four, oh four 🔍</h1>
           <p>

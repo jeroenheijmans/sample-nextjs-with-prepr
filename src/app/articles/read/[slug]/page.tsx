@@ -34,7 +34,7 @@ export default async function ArticlesPage({ params }: PageProps) {
 
   return (
     <main className="w-full pb-8">
-      <div className="my-8 mx-auto max-w-screen-lg px-4">
+      <div className="page-content">
         <div className="max-w-[320px] max-h-[320px] float-right ml-4 mb-4 border-4 border-black/25">
           {article.cover.length > 0 && article.cover[0]?.url && (
             // eslint-disable-next-line @next/next/no-img-element

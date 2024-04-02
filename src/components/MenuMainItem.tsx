@@ -38,7 +38,8 @@ export default function MenuMainItem({ item }: MenuMainItemProps) {
           className="
             text-sm md:text-base
             px-4 md:py-4 z-10
-            md:hidden md:absolute md:min-w-80 md:group-hover:block
+            transition-opacity duration-300
+            md:opacity-0 md:invisible md:absolute md:min-w-80 md:group-hover:visible md:group-hover:opacity-100
             md:bg-pink-800 md:border md:border-pink-900 md:drop-shadow-xl
             "
         >

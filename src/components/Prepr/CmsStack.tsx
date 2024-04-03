@@ -18,7 +18,7 @@ export default function CmsStack({ stack }: { stack: any }) {
           case "Search":
             return <CmsSearch key={model._id} data={model} />;
           default:
-            return <MissingCmsComponent />;
+            return <MissingCmsComponent typename={model.__typename} />;
         }
       })}
     </>

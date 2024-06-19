@@ -11,7 +11,11 @@ export const INFO_BOXES_DETAILS = gql`
       list_style_image
       link_text
       link_href {
+        __typename
         ... on Page {
+          _slug
+        }
+        ... on Article {
           _slug
         }
       }

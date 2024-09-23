@@ -3,6 +3,8 @@
 Showcasing integration of Prepr Headless CMS into a NextJS application.
 Sprinkling in some other libraries (like TailwindCSS) to make it work well.
 
-Further documentation forthcoming.
+Further documentation would still need to be created, pending available time for open source work.
 
-**⚠ Warning: this code is still a work in progress and cannot be fully considered "exemplary" yet. Even still it might be useful to others, which is why it's open source nonetheless.**
+## ⚠️ Notice about updates
+
+Note that this repository is provided "as-is" and will most likely not receive any (security) updates.
